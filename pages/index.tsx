@@ -1,16 +1,22 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Home: NextPage = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <div className="">
       <Head>
-        <title>Create Next App</title>
+        <title>Cookie Stand</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
+      <header className="flex items-center justify-between p-4 bg-emerald-500 text-black-50">
+        <h1 className="text-4xl">Cookie Stand Admin</h1>
+        <p></p>
+      </header>
+
+      <main className="flex flex-col items-center justify-center flex-1 w-full px-20 text-center bg-emerald-50">
         <h1 className="text-6xl font-bold">
           Welcome to{' '}
           <a className="text-blue-600" href="https://nextjs.org">
@@ -18,68 +24,36 @@ const Home: NextPage = () => {
           </a>
         </h1>
 
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
-            pages/index.tsx
-          </code>
-        </p>
+        <form className="w-3/4 p-4 my-4 rounded bg-emerald-400">
+          <h2>Create Cookie Stand</h2>
+          <div className="mb-6">
+            <label>Location</label>
+            <input name="stand" className="flex-auto w-3/4 m-4 bg-slate-200"></input>
+          </div>
+          <div className="flex items-center justify-center flex-1 w-3/4">
+            <label>Minimum Customers per Hour</label>
+            <input name="minCustomer" className="flex-auto m-4"></input>
+            <label>Maximum Customers per Hour</label>
+            <input name="maxCustomer" className="flex-auto m-4"></input>
+            <label>Average Cookies per Sale</label>
+            <input name="avgSale" className="flex-auto m-4"></input>
+            <button className="px-2 pl-1 rounded bg-emerald-500">Create</button>
+          </div>
+        </form>
 
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and API.
-            </p>
-          </a>
+        <p className="text-grey-100">Report Table Coming Soon...</p>
 
-          <a
-            href="https://nextjs.org/learn"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
       </main>
 
-      <footer className="flex h-24 w-full items-center justify-center border-t">
-        <a
-          className="flex items-center justify-center gap-2"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-        </a>
+      <footer className="flex items-start justify-start w-full h-24 border-t bg-emerald-500">
+        <nav>
+          <p className='m-2'>@2021</p>
+          <Link href='/careers'>
+            <a>Careers</a>
+          </Link>
+        </nav>
       </footer>
-    </div>
+    </div >
   )
 }
 
