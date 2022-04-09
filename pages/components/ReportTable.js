@@ -1,8 +1,13 @@
+import TableBody from './TableBody'
+const ReportTable = ({ stands }) => {
 
-const ReportTable = ({ stand }) => {
+  const updateTable = (event) => {
+    event.preventDefault();
+
+  }
   return (
 
-    <table className="w-1/2 mx-auto my-4">
+    <table className="w-1/2 mx-auto my-4 bg-emerald-500">
       <thead>
         <tr>
           <th className="border border-gray-700">Location</th>
@@ -12,15 +17,8 @@ const ReportTable = ({ stand }) => {
 
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td className="pl-2 border border-gray-700">{stand.location}</td>
-          <td className="pl-2 border border-gray-700">{stand.minCustomer}</td>
-          <td className="pl-2 border border-gray-700">{stand.maxCustomer}</td>
-          <td className="pl-2 border border-gray-700">{stand.avgSale}</td>
-
-        </tr>
-      </tbody>
+      <TableBody
+        stands={stands} />
     </table>
   )
 }
