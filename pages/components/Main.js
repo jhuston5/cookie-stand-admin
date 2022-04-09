@@ -3,31 +3,52 @@ import CreateForm from './CreateForm'
 import ReportTable from './ReportTable'
 
 const Main = () => {
-  const [stand, setStandDetails] = useState({})
-  console.log("Const Stand", stand)
+  const [stands, setStandDetails] = useState([])
+  const [addStand, setNewStand] = useState({
+    location: '',
+    minCustomer: '',
+    maxCustomer: '',
+    avgSale: '',
+
+  })
+  console.log("All Stands", stands)
+  console.log("Add Stand", addStand)
+
   function locationHandler(event) {
     event.preventDefault();
 
-    const jresp = ["JSON Data"]
-    const stand = {
-      location: event.target.location.value,
-      minCustomer: event.target.minCustomer.value,
-      maxCustomer: event.target.maxCustomer.value,
-      avgSale: event.target.avgSale.value,
+    const newStand = {
+      location: addStand.location,
+      minCustomer: addStand.minCustomer,
+      maxCustomer: addStand.maxCustomer,
+      avgSale: addStand.avgSale,
     }
-    // const new_stand = Object.keys(stand).map(function (key, index) {
-    //   new_stand.push()
-    // });
 
-    console.log(stand);
-    setStandDetails(stand);
+    const newStands = [...stands, newStand]
+
+    console.log(newStands);
+    setStandDetails(newStands);
+
+    event.target.reset()
+  }
+
+  function handleAddFormChange(event) {
+    event.preventDefault();
+
+    const fieldName = event.target.getAttribute('name');
+    const fieldValue = event.target.value;
+
+    const newFormData = { ...addStand };
+    newFormData[fieldName] = fieldValue;
+    setNewStand(newFormData)
   }
   return (
 
     <main className="flex flex-col items-center justify-center flex-1 w-full px-20 text-center bg-emerald-50">
-      <CreateForm locationHandler={locationHandler} />
-      <p className="text-grey-100">No Cookie Stands</p>
-      <ReportTable stand={stand} />
+      <CreateForm
+        locationHandler={locationHandler}
+        handleAddFormChange={handleAddFormChange} />
+      <ReportTable stands={stands} />
 
 
 
