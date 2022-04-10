@@ -48,7 +48,12 @@ const Main = () => {
       <CreateForm
         locationHandler={locationHandler}
         handleAddFormChange={handleAddFormChange} />
-      <ReportTable stands={stands} />
+      {stands.length == 0 &&
+        <h2>No Cookie Stands</h2>}
+
+      {stands.length > 0 &&
+        <ReportTable stands={stands} />
+      }
 
 
 
