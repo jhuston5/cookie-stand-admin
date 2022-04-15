@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import CreateForm from './CreateForm'
 import ReportTable from './ReportTable'
+import StaticTable from './StaticTable'
 
 const Main = () => {
   const [stands, setStandDetails] = useState([])
@@ -49,7 +50,8 @@ const Main = () => {
         locationHandler={locationHandler}
         handleAddFormChange={handleAddFormChange} />
       {stands.length == 0 &&
-        <h2>No Cookie Stands</h2>}
+        <StaticTable />}
+
 
       {stands.length > 0 &&
         <ReportTable stands={stands} />
